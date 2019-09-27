@@ -21,9 +21,20 @@ public class Student
     {
         return "Student{" + "studentID = " + studentID + ",\t name" + name + "\'" + "}";
     }
+
+    public void display() throws NameLengthException
+    {
+        if(this.name.length() < 10)
+        {
+            throw new ArithmeticException("Name Length Invalid");
+        }
+        System.out.println(studentID);
+        System.out.println(name);
+    }
+    @Override
     public void finalize()
     {
-
+        System.out.println("i am in finally method");
     }
 
 

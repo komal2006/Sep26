@@ -8,6 +8,7 @@ public class ExceptionHandling
         int a = 100;
         int b = 0;
         int c;
+        String name="HELLO";
         Student s = new Student(1,"Komaldeep Kaur");
         int x[] ={1,2,3};
         System.out.println("START");
@@ -22,12 +23,16 @@ public class ExceptionHandling
             {
                 throw new ArithmeticException("Don't divide by 10");
             }
+            if(name.length() < 10)
+            {
+                throw new ArithmeticException("Name must have length == 10 character");
+            }
         }
 
      catch(ArithmeticException ae)
         {
             System.out.println(ae.toString());
-            System.out.println("value of b =0 , Divisible by zero error");
+           // System.out.println("value of b =0 , Divisible by zero error");
         }
         catch(ArrayIndexOutOfBoundsException acb)
         {
@@ -44,8 +49,17 @@ public class ExceptionHandling
         }
         System.out.println("END");
 
-        s1= null;
+       // s1= null;
         //System.gc();
+        try
+        {
+            s1.display();
+        }
+        catch(NameLengthException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
 }
